@@ -1,0 +1,55 @@
+{%extends 'Machinery/base.html'%}
+
+{%block body%}
+
+{% load widget_tweaks %}
+
+{% load staticfiles%}
+
+   <!-- Top content -->
+   <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="wrapper-page">
+
+                        <div class="account-pages">
+                            <div class="account-box">
+                                <div class="account-logo-box">
+                                    <h2 class="text-uppercase text-center">
+                                    </h2>
+                                    <p class="m-b-0"></p>
+                                </div>
+                                <div class="account-content">
+                                    <form method="POST" novalidate>
+                                        {% csrf_token %}
+                                        {% include 'Machinery/forms.html' with form=form %}
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card-box-->
+
+
+                    </div>
+                    <!-- end wrapper -->
+
+                </div>
+            </div>
+        </div>
+      </section>
+
+
+    <!-- Javascript -->
+    <script src="{% static 'Machinery/js/jquery.min.js' %}"></script>
+    <script src="{% static 'Machinery/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Machinery/js/jquery.backstretch.min.js' %}"></script>
+    <script src="{% static 'Machinery/js/scripts.js' %}"></script>
+
+    <!--[if lt IE 10]>
+        <script src="assets/js/placeholder.js"></script>
+    <![endif]-->
+
+{%endblock%}

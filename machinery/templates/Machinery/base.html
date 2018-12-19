@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <meta charset="UTF-8">
+        <title>{%block title%} Web Scrapper {%endblock%}</title>
+         <!-- loads the path your static files -->
+
+        {% load staticfiles %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'Machinery/style.css' %}" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+         <!--Morris Chart CSS -->
+         <link rel="stylesheet" href="{% static 'Machinery/admin/assets/plugins/morris/morris.css' %}">
+
+         <!-- Switchery css -->
+         <link href="{% static 'Machinery/admin/assets/plugins/switchery/switchery.min.css' %}" rel="stylesheet" />
+ 
+         <!-- Bootstrap CSS -->
+         <link href="{% static 'Machinery/admin/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+ 
+         <!-- App CSS -->
+         <link href="{% static 'Machinery/admin/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+ 
+         <!-- App CSS -->
+         <link href="{% static 'Machinery/admin/assets/css/reset.css' %}" rel="stylesheet" type="text/css" />
+ 
+         <!-- Modernizr js -->
+         <script src="{% static 'Machinery/admin/assets/js/modernizr.min.js' %}"></script>
+
+
+    </head>
+
+
+    <body>
+
+            {%block body%}
+
+            {%endblock%}
+        
+    </body>
+
+</html>
