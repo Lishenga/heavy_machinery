@@ -1,0 +1,34 @@
+import urllib.request, string, random, os, shutil
+from PIL import Image
+from django.core.files.storage import FileSystemStorage
+from mimetypes import guess_extension
+from urllib.request import urlretrieve
+from django.conf import settings
+
+
+def base64decoding(pictures, file_type):
+    url = """data:image/"""+file_type+""";base64,"""+pictures
+    filename, m = urlretrieve(url)
+    size=30 
+    chars=string.ascii_uppercase + string.digits
+    newName = ''.join(random.choice(chars) for _ in range(size))
+    newName_thumb = ''.join(random.choice(chars) for _ in range(size))+'_thumb'+'.png'
+    new_name = shutil.copy(filename, settings.MEDIA_POSTS_PICTURE_ROOT+newName+'.'+file_type)
+    basewidth = 300
+    img = Image.open(find(newName+'.'+file_type))
+    wpercent = (basewidth/float(img.size[0]))
+    hsize = int((float(img.size[1])*float(wpercent)))
+    img = img.resize((basewidth,hsize), Image.ANTIALIAS)
+    img.save(os.path.join(settings.MEDIA_POSTS_PICTURE_THUMB_ROOT, newName_thumb), format="png", quality=70) 
+
+    data = {
+        "newName":newName+'.'+file_type,
+        "newName_thumb": newName_thumb,
+    }
+
+    return data
+
+def find(Name):
+    for root, dirs, files in os.walk(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))):
+        if Name in files:
+            return os.path.join(root, Name)
